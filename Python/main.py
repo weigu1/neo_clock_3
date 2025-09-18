@@ -26,6 +26,7 @@ RED = (1, 0, 0)
 GREEN = (0, 1, 0)
 BLUE = (0, 0, 1)
 MYCOLOR = GREEN
+BRIGHTNESS = [1,4,8]
 
 # Digit patterns for display
 DIGITS_5x8 =  {0: [0, 1, 1, 1, 1, 1, 1, 0,
@@ -251,15 +252,14 @@ def write_digit_3x5(nr, offset = 0, color = RED):
 
 def get_brightness():
     """ Read LDR and calculate brightness. """
-    lum = ldr.read_u16()
-    brightness = int(256-lum*256/65536)
-    #print(brightness)
-    if brightness > 200:
-        brightness = 20
-    elif brightness < 100:
-        brightness = 3
+    lum_adc = ldr.read_u16()
+    lum = int(256-lum_adc*256/65536)
+    if lum > 200:
+        brightness = BRIGHTNESS[2]
+    elif lum < 100:
+        brightness = BRIGHTNESS[0]
     else:
-        brightness = 7
+        brightness = BRIGHTNESS[1]
     return brightness
 
 def draw_clock():
