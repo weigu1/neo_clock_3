@@ -25,6 +25,7 @@ OFF = (0,0,0)
 RED = (1, 0, 0)
 GREEN = (0, 1, 0)
 BLUE = (0, 0, 1)
+WHITE = (1, 1, 1)
 MYCOLOR = GREEN
 BRIGHTNESS = [1,4,8]
 
@@ -327,6 +328,7 @@ while True:
     if now_time[4] == 3 and now_time[5] == 0 and now_time[6] == 0:
         ntptime.settime()   # Sync RTC with NTP (UTC)
         utc_time = utime.gmtime()
+        set_rtc_with_timezone_and_dst(utc_time, TIMEZONE_OFFSET)
     hour = hour%12
     brightness = get_brightness()
     mycolor = tuple([brightness*x for x in MYCOLOR])
