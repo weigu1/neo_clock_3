@@ -325,10 +325,13 @@ while True:
     min = now_time[5]
     sec = now_time[6]
     # check ntp once a day
-    if now_time[4] == 3 and now_time[5] == 0 and now_time[6] == 0:
-        ntptime.settime()   # Sync RTC with NTP (UTC)
-        utc_time = utime.gmtime()
-        set_rtc_with_timezone_and_dst(utc_time, TIMEZONE_OFFSET)
+    if now_time[4] == 3 and now_time[5] == 5 and now_time[6] == 0:
+        try:
+            ntptime.settime()   # Sync RTC with NTP (UTC)
+            utc_time = utime.gmtime()
+            set_rtc_with_timezone_and_dst(utc_time, TIMEZONE_OFFSET)
+        except:
+            pass
     hour = hour%12
     brightness = get_brightness()
     mycolor = tuple([brightness*x for x in MYCOLOR])

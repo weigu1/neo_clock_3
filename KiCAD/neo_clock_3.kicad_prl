@@ -80,20 +80,7 @@
   },
   "open_jobsets": [],
   "project": {
-    "files": [
-      {
-        "name": "neo_clock_3.kicad_sch",
-        "open": false,
-        "window": {
-          "display": 0,
-          "maximized": true,
-          "pos_x": 3743,
-          "pos_y": 137,
-          "size_x": 2558,
-          "size_y": 1405
-        }
-      }
-    ]
+    "files": []
   },
   "schematic": {
     "selection_filter": {
