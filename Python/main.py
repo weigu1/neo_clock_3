@@ -330,6 +330,7 @@ while True:
             ntptime.settime()   # Sync RTC with NTP (UTC)
             utc_time = utime.gmtime()
             set_rtc_with_timezone_and_dst(utc_time, TIMEZONE_OFFSET)
+            sleep(1)
         except:
             pass
     hour = hour%12
@@ -341,6 +342,6 @@ while True:
         draw_clock()
     brightness_prev = brightness
     time_prev = [hour//10, hour%10, min//10, min%10, sec//10, sec%10]
-    sleep(1)
+    sleep(0.1)
 
 
